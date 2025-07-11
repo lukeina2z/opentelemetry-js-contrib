@@ -75,7 +75,7 @@ docs
 .DS_Store
 
 # VsCode configs
-.vscode/
+# .vscode/
 
 *.iml
 .idea

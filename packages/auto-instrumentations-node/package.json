@@ -35,8 +35,8 @@
     "url": "https://github.com/open-telemetry/opentelemetry-js-contrib/issues"
   },
   "peerDependencies": {
-    "@opentelemetry/api": "^1.4.1",
-    "@opentelemetry/core": "^2.0.0"
+    "@opentelemetry/api": "file:../../../opentelemetry-js-lk99main/api",
+    "@opentelemetry/core": "file:../../../opentelemetry-js-lk99main/packages/opentelemetry-core"
   },
   "devDependencies": {
     "@opentelemetry/api": "^1.4.1",
@@ -50,7 +50,7 @@
     "typescript": "5.0.4"
   },
   "dependencies": {
-    "@opentelemetry/instrumentation": "^0.206.0",
+    "@opentelemetry/instrumentation": "file:../../../opentelemetry-js-lk99main/experimental/packages/opentelemetry-instrumentation",
     "@opentelemetry/instrumentation-amqplib": "^0.53.0",
     "@opentelemetry/instrumentation-aws-lambda": "^0.58.0",
     "@opentelemetry/instrumentation-aws-sdk": "^0.62.0",
@@ -97,8 +97,8 @@
     "@opentelemetry/resource-detector-azure": "^0.14.0",
     "@opentelemetry/resource-detector-container": "^0.7.9",
     "@opentelemetry/resource-detector-gcp": "^0.41.0",
-    "@opentelemetry/resources": "^2.0.0",
-    "@opentelemetry/sdk-node": "^0.206.0"
+    "@opentelemetry/resources": "file:../../../opentelemetry-js-lk99main/packages/opentelemetry-resource",
+    "@opentelemetry/sdk-node": "file:../../../opentelemetry-js-lk99main/experimental/packages/opentelemetry-sdk-node"
   },
   "files": [
     "build/src/**/*.js",
