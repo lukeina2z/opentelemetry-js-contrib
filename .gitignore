@@ -75,7 +75,7 @@ docs
 .DS_Store
 
 # VsCode configs
-.vscode/
+# .vscode/
 
 *.iml
 .idea
@@ -85,3 +85,5 @@ version.ts
 /.vs
 .cursor/rules/nx-rules.mdc
 .github/instructions/nx.instructions.md
+
+packages/instrumentation-typeorm/connection2.db
