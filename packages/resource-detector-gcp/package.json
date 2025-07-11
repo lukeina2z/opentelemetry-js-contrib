@@ -61,8 +61,10 @@
     "@opentelemetry/api": "^1.0.0"
   },
   "dependencies": {
-    "@opentelemetry/core": "^2.0.0",
-    "@opentelemetry/resources": "^2.0.0",
+    "json-bigint": "^1.0.0",
+    "google-logging-utils": "^0.0.2",
+    "@opentelemetry/core": "file:../../../opentelemetry-js/packages/opentelemetry-core",
+    "@opentelemetry/resources": "file:../../../opentelemetry-js/packages/opentelemetry-resources/package.json",
     "@opentelemetry/semantic-conventions": "^1.27.0",
     "gcp-metadata": "^6.0.0"
   },

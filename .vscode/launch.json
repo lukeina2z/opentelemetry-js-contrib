@@ -1,0 +1,157 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Dbg OTel Auto / aaa-test",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "start"
+            ],
+            "cwd": "${workspaceFolder}/z-examples/aaatest",
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ],
+            "env": {
+                "NODE_OPTIONS": "--enable-source-maps",
+                // "OTEL_LOG_LEVEL": "none",
+                "OTEL_LOG_LEVEL": "debug",
+                "OTEL_RESOURCE_ATTRIBUTES": "service.name=xy-nodejs-OTelJsAuto",
+                /// Metric
+                "OTEL_METRICS_EXPORTER": "none",
+                "OTEL_METRIC_EXPORT_INTERVAL": "2000",
+                /// Log
+                "OTEL_LOGS_EXPORTER": "none",
+                /// Trace
+                "OTEL_TRACES_EXPORTER": "console,otlp",
+                "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT": "http://localhost:4316/v1/traces",
+                // "OTEL_NODE_ENABLED_INSTRUMENTATIONS": "aws-sdk",
+                "OTEL_NODE_ENABLED_INSTRUMENTATIONS": "aws-sdk, fs,http,nestjs-core",
+                /// OTLP Exporter
+                "OTEL_EXPORTER_OTLP_ENDPOINT": "http://localhost:4316",
+                "OTEL_EXPORTER_OTLP_PROTOCOL": "http/json",
+                // "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf",
+                /// AWS Application Signals
+                "OTEL_TRACES_SAMPLER": "always_on",
+                "OTEL_TRACES_SAMPLER_ARG": "endpoint=http://localhost:2000",
+                "OTEL_AWS_APPLICATION_SIGNALS_RUNTIME_ENABLED": "false",
+                "OTEL_AWS_APPLICATION_SIGNALS_ENABLED": "true",
+                "OTEL_AWS_APPLICATION_SIGNALS_EXPORTER_ENDPOINT": "http://localhost:4316/v1/metrics",
+                "OTEL_INSTRUMENTATION_AWS_SDK_EXPERIMENTAL_SPAN_ATTRIBUTES": "true"
+            },
+            "sourceMaps": true,
+            "console": "integratedTerminal",
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../opentelemetry-js/api/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/api-logs/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/opentelemetry-sdk-node/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/opentelemetry-instrumentation/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/exporter-trace-otlp-http/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/exporter-trace-otlp-proto/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-core/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-context-async-hooks/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-sdk-trace-base/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-sdk-trace-node/**",
+                "!**/node_modules/**"
+            ],
+            // "sourceMapPathOverrides": {
+            //     "../../src/instrumentation.ts": "${workspaceFolder}/../opentelemetry-js-contrib/plugins/node/instrumentation-fs/src/instrumentation.ts",
+            //     "${workspaceFolder}/../opentelemetry-js-contrib/plugins/node/instrumentation-fs/src/instrumentation.ts": "../../src/instrumentation.ts",
+            //     "${workspaceFolder}/examples/basic-tracer-node/node_modules/@opentelemetry/*": "${workspaceFolder}/node_modules/@opentelemetry/*",
+            // },
+            "type": "node"
+        },
+        {
+            "name": "ut-dbg",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "test"
+            ],
+            "cwd": "${workspaceFolder}/packages/auto-instrumentations-node",
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ],
+            "env": {
+                "NODE_OPTIONS": "--enable-source-maps",
+                "OTEL_LOG_LEVEL": "none"
+            },
+            "sourceMaps": true,
+            "console": "integratedTerminal",
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../opentelemetry-js/api/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/api-logs/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/opentelemetry-sdk-node/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/opentelemetry-instrumentation/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/exporter-trace-otlp-http/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/exporter-trace-otlp-proto/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-core/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-context-async-hooks/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-sdk-trace-base/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-sdk-trace-node/**",
+                "!**/node_modules/**"
+            ],
+            // "sourceMapPathOverrides": {
+            //     "../../src/instrumentation.ts": "${workspaceFolder}/../opentelemetry-js-contrib/plugins/node/instrumentation-fs/src/instrumentation.ts",
+            //     "${workspaceFolder}/../opentelemetry-js-contrib/plugins/node/instrumentation-fs/src/instrumentation.ts": "../../src/instrumentation.ts",
+            //     "${workspaceFolder}/examples/basic-tracer-node/node_modules/@opentelemetry/*": "${workspaceFolder}/node_modules/@opentelemetry/*",
+            // },
+            "type": "node"
+        },
+        {
+            "name": "ut-aws-sdk",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "test"
+            ],
+            "cwd": "${workspaceFolder}/plugins/node/opentelemetry-instrumentation-aws-sdk",
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "outFiles": [
+                "${workspaceFolder}/**/*.js"
+            ],
+            "env": {
+                "NODE_OPTIONS": "--enable-source-maps",
+                "OTEL_LOG_LEVEL": "none"
+            },
+            "sourceMaps": true,
+            "console": "integratedTerminal",
+            "resolveSourceMapLocations": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/../opentelemetry-js/api/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/api-logs/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/opentelemetry-sdk-node/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/opentelemetry-instrumentation/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/exporter-trace-otlp-http/**",
+                "${workspaceFolder}/../opentelemetry-js/experimental/packages/exporter-trace-otlp-proto/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-core/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-context-async-hooks/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-sdk-trace-base/**",
+                "${workspaceFolder}/../opentelemetry-js/packages/opentelemetry-sdk-trace-node/**",
+                "!**/node_modules/**"
+            ],
+            // "sourceMapPathOverrides": {
+            //     "../../src/instrumentation.ts": "${workspaceFolder}/../opentelemetry-js-contrib/plugins/node/instrumentation-fs/src/instrumentation.ts",
+            //     "${workspaceFolder}/../opentelemetry-js-contrib/plugins/node/instrumentation-fs/src/instrumentation.ts": "../../src/instrumentation.ts",
+            //     "${workspaceFolder}/examples/basic-tracer-node/node_modules/@opentelemetry/*": "${workspaceFolder}/node_modules/@opentelemetry/*",
+            // },
+            "type": "node"
+        }
+    ]
+}
