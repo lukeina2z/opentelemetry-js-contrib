@@ -1,0 +1,41 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "debug this app",
+            "request": "launch",
+            "runtimeArgs": [
+                "run-script",
+                "debug"
+            ],
+            "cwd": "${workspaceFolder}",
+            "runtimeExecutable": "npm",
+            "skipFiles": [
+                // "<node_internals>/**"
+            ],
+            "type": "node",
+            "env": {
+                "OTEL_SERVICE_NAME": "OTel-Nodejs",
+                // "NODE_OPTIONS": "--require @opentelemetry/auto-instrumentations-node/register",
+                "OTEL_LOG_LEVEL": "all",
+                "OTEL_NODE_RESOURCE_DETECTORS": "env,host,os,process",
+                "OTEL_EXPORTER_OTLP_ENDPOINT": "http://127.0.0.1:4318",
+                "OTEL_TRACES_EXPORTER": "otlp",
+                "OTEL_EXPORTER_OTLP_TRACES_ENDPOINT": "http://127.0.0.1:4318/v1/traces",
+                "OTEL_EXPORTER_OTLP_PROTOCOL": "http/protobuf"
+            },
+            "sourceMaps": true,
+            "console": "integratedTerminal",
+            "outFiles": [
+                "${workspaceFolder}/**/*.(m|c|)js",
+                "/Users/lukezha/github/otel-js/working/opentelemetry-js-contrib-lkMain/packages/auto-instrumentations-node/build/**/*.js",
+                "/Users/lukezha/github/otel-js/working/opentelemetry-js-contrib-lkMain/node_modules/@opentelemetry/sdk-node/build/**/*.js",
+                "!**/node_modules/**"
+            ]
+        }
+    ]
+}
+
