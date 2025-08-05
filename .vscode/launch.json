@@ -129,13 +129,13 @@
                 "run-script",
                 "test"
             ],
-            "cwd": "${workspaceFolder}/plugins/node/opentelemetry-instrumentation-aws-sdk",
+            "cwd": "${workspaceFolder}/packages/instrumentation-aws-sdk",
             "runtimeExecutable": "npm",
             "skipFiles": [
                 "<node_internals>/**"
             ],
             "outFiles": [
-                "${workspaceFolder}/**/*.js"
+                "${workspaceFolder}/packages/instrumentation-aws-sdk/**/*.js"
             ],
             "env": {
                 "NODE_OPTIONS": "--enable-source-maps",
@@ -144,7 +144,7 @@
             "sourceMaps": true,
             "console": "integratedTerminal",
             "resolveSourceMapLocations": [
-                "${workspaceFolder}/**",
+                "${workspaceFolder}/packages/instrumentation-aws-sdk/**",
                 "${workspaceFolder}/../opentelemetry-js/api/**",
                 "${workspaceFolder}/../opentelemetry-js/experimental/packages/api-logs/**",
                 "${workspaceFolder}/../opentelemetry-js/experimental/packages/opentelemetry-sdk-node/**",
