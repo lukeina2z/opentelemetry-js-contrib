@@ -24,6 +24,7 @@ import {
 import { BedrockRuntimeServiceExtension } from './bedrock-runtime';
 import { DynamodbServiceExtension } from './dynamodb';
 import { SecretsManagerServiceExtension } from './secretsmanager';
+import { StepFunctionsServiceExtension } from './stepfunctions';
 import { SnsServiceExtension } from './sns';
 import { LambdaServiceExtension } from './lambda';
 import { S3ServiceExtension } from './s3';
@@ -34,6 +35,7 @@ export class ServicesExtensions implements ServiceExtension {
 
   constructor() {
     this.services.set('SecretsManager', new SecretsManagerServiceExtension());
+    this.services.set('SFN', new StepFunctionsServiceExtension());
     this.services.set('SQS', new SqsServiceExtension());
     this.services.set('SNS', new SnsServiceExtension());
     this.services.set('DynamoDB', new DynamodbServiceExtension());
