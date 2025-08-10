@@ -4,7 +4,7 @@ console.log("hello auto instrumentation!");
 const { diag, trace, DiagConsoleLogger, DiagLogLevel } = require("@opentelemetry/api");
 
 // For troubleshooting, set the log level to DiagLogLevel.DEBUG/INFO
-diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
+// diag.setLogger(new DiagConsoleLogger(), DiagLogLevel.DEBUG);
 
 const activeSpanFoo = trace.getActiveSpan();
 

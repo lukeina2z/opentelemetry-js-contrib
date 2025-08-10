@@ -44,8 +44,8 @@
             "env": {
                 // "AWS_REGION": "us-west-2",
                 // "NODE_OPTIONS": "--enable-source-maps",
-                // "OTEL_LOG_LEVEL": "none",
-                // "OTEL_LOG_LEVEL": "debug",
+                "OTEL_LOG_LEVEL": "none",
+                // "OTEL_LOG_LEVEL": "all",
                 // "OTEL_RESOURCE_ATTRIBUTES": "service.name=xy-nodejs-OTelJsAuto",
                 // "OTEL_NODE_RESOURCE_DETECTORS": "aws,env,host,os,process,container", // "all",
                 /// Metric
