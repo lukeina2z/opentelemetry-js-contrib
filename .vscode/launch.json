@@ -5,7 +5,7 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Dbg OTel Auto / z-Exam/aaa-test",
+            "name": "Zsample/aaa-test",
             "request": "launch",
             "runtimeArgs": [
                 "--enable-source-maps",

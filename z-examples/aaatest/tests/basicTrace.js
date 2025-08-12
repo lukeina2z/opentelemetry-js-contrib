@@ -2,6 +2,7 @@
 
 const { context, trace, ROOT_CONTEXT } = require('@opentelemetry/api');
 const awsCalls = require('./awsCall');
+const httpCalls = require('./httpCall');
 
 async function doWork(parent, tracer) {
     // Start another span. In this example, the main method already started a
@@ -21,6 +22,10 @@ async function doWork(parent, tracer) {
     span.addEvent('invoking doWork');
 
     const newContext = trace.setSpan(context.active(), span);
+
+    await context.with(newContext, async () => {
+        await httpCalls.pingWebSite();
+    });
 
     await context.with(newContext, async () => {
         await awsCalls.s3Call();
