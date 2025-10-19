@@ -32,7 +32,12 @@
       "outFiles": [
         "${workspaceFolder}/**/*.(m|c|)js",
         "!**/node_modules/**"
-      ]
+      ],
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/../opentelemetry-js-lk99main/**",
+        "!**/node_modules/**"
+      ],
     },
     {
       "name": "Zsample/aaa-test",
